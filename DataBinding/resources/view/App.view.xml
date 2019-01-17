@@ -17,6 +17,14 @@
 						width="200px" />
 				<Image class="sapUiSmallMargin" width="500px" height="300px" src="{parts: ['/address/street', '/address/zip', '/address/city', '/address/country'], formatter: '.formatMapUrl' }" />
 			</l:VerticalLayout>
+			<l:VerticalLayout>
+				<Label text="{i18n>salesToDate}" class="sapUiSmallMargin" />
+				<Input 
+					width="200px"
+					enabled="{/enabled}"
+					description="{/currencyCode}"
+					value="{ parts : [{path: '/salesToDate'}, {path: '/currencyCode'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false} }" />
+			</l:VerticalLayout>
 		</content>
 	</Panel>
 </mvc:View>

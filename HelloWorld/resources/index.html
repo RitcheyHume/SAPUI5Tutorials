@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+<title>HelloWorld</title>
+<!-- 1.) Load SAPUI5 (from the SAPUI5 Micro-Service), select theme and control library -->
+<script src="{{{ui5liburl}}}/resources/sap-ui-core.js"
+	id="sap-ui-bootstrap" data-sap-ui-libs="sap.m"
+	data-sap-ui-theme="sap_bluecrystal">
+</script>
+<!-- 2.) Create a UI5 button and place it onto the page -->
+<script type="text/javascript">
+	sap.ui.getCore().attachInit(function() {
+		// Create a mobile app and display Page 1 initially
+		var app = new sap.m.App("myApp", {
+			initialPage: "page1"
+		});
+		// Create the first page
+		var page1 = new sap.m.Page("page1", {
+			title: "Hello World",
+			showNavButton: false,
+			content: new sap.m.Button({
+				text: "Go to Page 2",
+				press: function () {
+					// Navigate to page2
+					app.to("page2");
+				}
+			})
+		});
+		// Create the second page with a back button
+		var page2 = new sap.m.Page("page2", {
+			title: "Hello World Page 2",
+			showNavButton: true,
+			navButtonPress: function() {
+				// Go back to previous page
+				app.back();
+			}
+		});
+		// Add both pages to the app
+		app.addPage(page1).addPage(page2);
+		// Place the app into the HTML document
+		app.placeAt("uiArea");
+	});
+
+
+	// create the button instance
+	// var myButton = new sap.m.Button("btn");
+
+	// set properties, e.g. the text (there is also a shorter way of setting several properties)
+	// myButton.setText("Hello World!");
+
+	// attach an action to the button's "press" event (use jQuery to fade out the button)
+	// myButton.attachPress(function(){$("#btn").fadeOut()});
+
+	// place the button into the HTML element defined below
+	// myButton.placeAt("uiArea");
+	</script>
+</head>
+<body class="sapUiBody">
+	<!-- This is where you place the UI5 button -->
+	<div id="uiArea"></div>
+</body>
+</html>

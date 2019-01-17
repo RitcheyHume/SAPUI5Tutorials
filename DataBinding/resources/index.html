@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+<title>DataBinding</title>
+<!-- 1.) Load SAPUI5 (from a remote server), select theme and control library -->
+<script src="{{{ui5liburl}}}/resources/sap-ui-core.js"
+	id="sap-ui-bootstrap" 
+	data-sap-ui-libs="sap.m"
+	data-sap-ui-theme="sap_bluecrystal"
+	data-sap-ui-compatVersion="edge"
+	data-sap-ui-preload="async"
+	data-sap-ui-resourceRoots='{ "sap.ui.demo.db": "./"}' >
+</script>
+<script>
+	// Attach an ononymous function to the 'init' event
+	sap.ui.getCore().attachInit(function() {
+		// Create a JSON model from an object literal
+		var oModel = new sap.ui.model.json.JSONModel({
+			firstName : "Ritchey",
+			lastName : "Hume",
+			enabled : true,
+			panelHeaderText : "Data Binding Basics"
+		});
+		// Assign the model object to the SAPUI5 core
+		sap.ui.getCore().setModel(oModel);
+		// Create a text UI element that displays the text string in the model
+		new sap.ui.core.mvc.XMLView({
+			viewName : "sap.ui.demo.db.view.App"
+		}).placeAt("content");
+	})
+</script>
+</head>
+<body class="sapUiBody">
+	<div id="content"></div>
+</body>
+</html>

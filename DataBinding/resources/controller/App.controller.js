@@ -12,6 +12,13 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/type/Currency"],
 				var oLocaleData = new sap.ui.core.LocaleData(oLocale);
 				var oCurrency = new Currency(oLocaleData.mData.currencyFormat);
 				return oCurrency.formatValue([fUnitPrice * iStockLevel, sCurrCode], "string");
+			},
+			onItemSelected: function(oEvent) {
+				var oSelectedItem = oEvent.getSource();
+				var oContext = oSelectedItem.getBindingContext("products");
+				var sPath = oContext.getPath();
+				var oProductDetailPanel = this.getView().byId("productDetailsPanel");
+				oProductDetailPanel.bindElement({ path : sPath, model : "products" });
 			}
 		});
 	});

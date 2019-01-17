@@ -30,7 +30,7 @@
 			"salesToDate" : 12345.6789,
 			"currencyCode" : "EUR"
 		});
-		oModel.setDefaultBindingMode(sap.ui.model.BindingMode.OneWay);
+		//oModel.setDefaultBindingMode(sap.ui.model.BindingMode.OneWay);
 		// Assign the model object to the SAPUI5 core
 		sap.ui.getCore().setModel(oModel);
 		
@@ -42,10 +42,16 @@
 		// Assign the model object to the SAPUI5 core using the name "i18n"
 		sap.ui.getCore().setModel(oResourceModel, "i18n");
 		
-		// Create a text UI element that displays the text string in the model
-		new sap.ui.core.mvc.XMLView({
+		// Create view
+		var oView = new sap.ui.core.mvc.XMLView({
 			viewName : "sap.ui.demo.db.view.App"
-		}).placeAt("content");
+		});
+		
+		// Register the view with the message manager
+		sap.ui.getCore().getMessageManager().registerObject(oView, true);
+		
+		// Insert the view into the DOM
+		oView.placeAt("content");
 	})
 </script>
 </head>

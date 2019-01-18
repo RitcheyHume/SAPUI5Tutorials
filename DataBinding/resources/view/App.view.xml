@@ -29,6 +29,10 @@
 	</Panel>
 	<Panel headerText="{i18n>panel3HeaderText}" class="sapUiResponsiveMargin" width="auto">
 		<content>
+			<List id="ProductList" headerText="{i18n>productListTitle}" items="{
+				path: 'products>/Products',
+				factory: '.productListFactory'
+			}" />
 			<List headerText="{i18n>productListTitle}" items="{products>/Products}">
 				<items>
 					<ObjectListItem 

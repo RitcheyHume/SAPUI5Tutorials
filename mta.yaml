@@ -24,6 +24,13 @@ modules:
       - name: ui5-lib
         properties:
           ui5liburl: '~{url}'
+  - name: NavigationAndRouting
+    type: html5
+    path: NavigationAndRouting
+    requires:
+      - name: ui5-lib
+        properties:
+          ui5liburl: '~{url}'
 resources:
   - name: ui5-lib
     type: configuration

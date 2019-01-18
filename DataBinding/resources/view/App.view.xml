@@ -34,7 +34,7 @@
 					<ObjectListItem 
 									press=".onItemSelected"
 									type="Active"
-									title="{products>ProductName}"
+									title="{products>UnitsInStock} x {products>ProductName}"
 									number="{	parts:
 													[
 														{path: 'products>UnitPrice'},
@@ -43,7 +43,8 @@
 												type: 'sap.ui.model.type.Currency',
 												formatOptions: { showMeasure: false }
 											}"
-									numberUnit="{/currencyCode}">
+									numberUnit="{/currencyCode}"
+									numberState="{= ${products>UnitPrice}  > ${/priceThreshold} ? 'Error' : 'Success' }">
 						<attributes>
 							<ObjectAttribute text="({products>QuantityPerUnit})"/>
 							<ObjectAttribute title="{i18n>stockValue}"

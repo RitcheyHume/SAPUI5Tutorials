@@ -29,12 +29,7 @@
 		}
   	},
 	"sap.ui5": {
-		"rootView": {
-			"viewName": "sap.ui.demo.nav.view.App",
-			"type": "XML",
-			"async": true,
-			"id": "app"
-		},
+		"rootView": "sap.ui.demo.nav.view.App",
 		"dependencies": {
 			"minUI5Version": "1.30",
 			"libs": {
@@ -51,6 +46,27 @@
 			},
 			"": {
 				"dataSource": "employeeRemote"
+			}
+		},
+		"routing" : {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "sap.ui.demo.nav.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"transition": "slide"
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "appHome",
+				"target": "home"
+			}],
+			"targets": {
+				"home": {
+					"viewName": "Home",
+					"viewLevel": 1
+				}
 			}
 		}
 	}

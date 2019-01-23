@@ -79,6 +79,11 @@
 				"pattern": "employees/{employeeId}",
 				"name": "employee",
 				"target": "employee"
+			},
+			{
+				"pattern": "employees/{employeeId}/resume",
+				"name": "employeeResume",
+				"target": "employeeResume"
 			}],
 			"targets": {
 				"home": {
@@ -99,6 +104,11 @@
 				"employee": {
 					"viewName": "employee.Employee",
 					"viewLevel": 3
+				},
+				"employeeResume": {
+					"viewName": "employee.Resume",
+					"viewLevel": 4,
+					"transition": "flip"
 				}
 			}
 		}

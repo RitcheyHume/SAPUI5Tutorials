@@ -25,10 +25,10 @@
 						<mvc:XMLView viewName="sap.ui.demo.nav.view.employee.ResumeProjects"></mvc:XMLView>
 					</IconTabFilter>
 					<IconTabFilter id="hobbiesTab" text="{i18n>Hobbies}" key="Hobbies">
-						<Text text="{Hobbies}" />
+						<!-- Place content via lazy loading -->
 					</IconTabFilter>
 					<IconTabFilter id="notesTab" text="{i18n>Notes}" key="Notes">
-						<Text text="{Notes}" />
+						<!-- Place content via lazy loading -->
 					</IconTabFilter>
 				</items>
 			</IconTabBar>

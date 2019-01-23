@@ -7,13 +7,26 @@ sap.ui.define([
 	"use strict";
 	return BaseController.extend("sap.ui.demo.nav.controller.employee.overview.EmployeeOverviewContent", {
 		onInit: function () {
+			var oRouter = this.getRouter();
 			this._oTable = this.getView().byId("employeesTable");
 			this._oVSD = null; 
 			this._sSortField = null; 
 			this._bSortDescending = false; 
 			this._aValidSortFields = ["EmployeeID", "FirstName", "LastName"];
 			this._sSearchQuery = null;
+			this._oRouterArgs = null;
 			this._initViewSettingsDialog();
+			// Make the search bookmarkable
+			oRouter.getRoute("employeeOverview").attachMatched(this._onRouteMatched, this);
+		},
+		_onRouteMatched: function(oEvent) {
+			// Save the current query state
+			this._oRouterArgs = oEvent.getParameter("arguments");
+			this._oRouterArgs.query = this._oRouterArgs["?query"] || {};
+			delete this._oRouterArgs["?query"];
+			if (this._oRouterArgs.query) {
+				this._applySearchFilter(this._oRouterArgs.query.search);
+			}
 		},
 		onSortButtonPressed : function (oEvent) {
 			this._oVSD.open();

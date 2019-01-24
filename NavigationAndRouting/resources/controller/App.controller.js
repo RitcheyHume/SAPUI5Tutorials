@@ -21,6 +21,14 @@ sap.ui.define([
 							jQuery.sap.log.setLevel((jQuery.sap.log.Level.ERROR));				
 							// jQuery.sap.log.info("Sorry, but the hash '" + sHash + "' is invalid.", "The resource was not found.");
 						});
+						oRouter.attachRouteMatched(function (oEvent) {
+							var sRouteName = oEvent.getParameter("name");
+							// do something, i.e. send usage statistics to back end
+							// in order to improve our app and the user experience (Build-Measure-Learn cycle)
+							jQuery.sap.log.setLevel((jQuery.sap.log.Level.INFO));
+							jQuery.sap.log.info("User accessed route " + sRouteName + ", timestamp = " + new Date().getTime());
+							jQuery.sap.log.setLevel((jQuery.sap.log.Level.ERROR));				
+						});
 			}
 		});
 	});

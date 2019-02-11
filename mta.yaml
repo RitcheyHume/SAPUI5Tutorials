@@ -31,6 +31,20 @@ modules:
       - name: ui5-lib
         properties:
           ui5liburl: '~{url}'
+
+  
+
+
+  
+
+
+  
+
+
+  - name: FioriWeb
+    type: html5
+    path: FioriWeb
+
 resources:
   - name: ui5-lib
     type: configuration
